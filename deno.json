@@ -1,0 +1,15 @@
+{
+  "tasks": {
+    "dev": "deno -A --watch main.tsx",
+    "build": "deno -A main.tsx"
+  },
+  "imports": {
+    "@inbestigator/godact": "jsr:@inbestigator/godact@^0.5.3",
+    "@types/react": "npm:@types/react@^18.3.18",
+    "react": "npm:react@^18.3.1"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
+}
