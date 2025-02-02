@@ -4,7 +4,7 @@
     "build": "deno -A main.tsx"
   },
   "imports": {
-    "@inbestigator/godact": "jsr:@inbestigator/godact@^0.5.3",
+    "@inbestigator/godact": "jsr:@inbestigator/godact@^0.5.4",
     "@types/react": "npm:@types/react@^18.3.18",
     "react": "npm:react@^18.3.1"
   },
