@@ -24,7 +24,7 @@ export default function Player() {
       />
       <CollisionShape2D
         name="CollisionShape2D"
-        shape={createRectangleShape2D({ size: Vector2(127, 127) })}
+        shape={createRectangleShape2D({ size: Vector2(114, 114) })}
       />
     </CharacterBody2D>
   );

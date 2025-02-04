@@ -62,7 +62,13 @@ function generateLevel() {
         ((pipeHeights[j][0] === i ||
             (pipeHeights[j][0] + pipeHeights[j][1]) === i)
           ? "."
-          : "#") +
+          : (pipeHeights[j][0] - i === 1 ||
+              (pipeHeights[j][0] + pipeHeights[j][1]) - i === 1)
+          ? "'"
+          : (pipeHeights[j][0] - i === -1 ||
+              (pipeHeights[j][0] + pipeHeights[j][1]) - i === -1)
+          ? ","
+          : ".") +
         "..";
     }
     layout[i] = layout[i] + "$";
@@ -77,13 +83,31 @@ function MainScene() {
   for (let y = 0; y < split.length; y++) {
     for (let x = 0; x < split[y].length; x++) {
       switch (split[y][x]) {
-        case "X":
-        case "#":
+        case "'":
+        case ",":
           children.push(
             <Floor
-              addScript={split[y][x] === "#"}
+              addScript
+              height={split[y][x] === "'" ? y * 64 : ((9 - y) * 64)}
               key={`${x},${y}`}
-              position={Vector2(64 * x, 64 * y)}
+              position={Vector2(
+                64 * x,
+                split[y][x] === "'"
+                  ? (y * 32) + 32
+                  : ((9 * 64) - ((9 - y) * 32)) - 32,
+              )}
+            />,
+          );
+          break;
+        case "X":
+          children.push(
+            <Floor
+              height={64}
+              key={`${x},${y}`}
+              position={Vector2(
+                64 * x,
+                64 * y,
+              )}
             />,
           );
           break;
@@ -108,6 +132,15 @@ function MainScene() {
         texture={createTexture2D({ path: "res://flap-bg.png" })}
         texture_filter={1}
         scale={Vector2(65, 64)}
+      />
+      <Sprite2D
+        name="ExtraBackground"
+        position={Vector2(1328, 288)}
+        script="./moveBack.ts"
+        texture={createTexture2D({ path: "res://flap-bg.png" })}
+        texture_filter={1}
+        scale={Vector2(65, 64)}
+        flip_h
       />
       <Player />
       <Camera2D position={Vector2(128, 288)} name="Camera2D" />

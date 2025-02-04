@@ -1,6 +1,7 @@
 # Flappy bird
 
-This Godot game was made using Godact, it was fully written in Typescript and React.
+This Godot game was made using Godact, it was fully written in Typescript and
+React.
 
 ## Setup
 

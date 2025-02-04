@@ -10,11 +10,13 @@ import {
 import "./moveBack.ts";
 
 export default function Floor({
-  addScript,
+  addScript = false,
   position,
+  height,
 }: {
-  addScript: boolean;
+  addScript?: boolean;
   position: Vector2Type;
+  height: number;
 }) {
   return (
     <StaticBody2D
@@ -24,13 +26,13 @@ export default function Floor({
     >
       <CollisionShape2D
         name="CollisionShape2D"
-        shape={createRectangleShape2D({ size: Vector2(64, 64) })}
+        shape={createRectangleShape2D({ size: Vector2(64, height) })}
       />
       {addScript && (
         <Sprite2D
           name="Sprite2D"
           texture={createTexture2D({ path: "res://flap-pipe.png" })}
-          scale={Vector2(64, 64)}
+          scale={Vector2(64, height)}
           texture_filter={1}
         />
       )}
