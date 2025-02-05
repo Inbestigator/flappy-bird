@@ -1,9 +1,10 @@
 import {
-  Button,
   Camera2D,
   CollisionShape2D,
   createGodactScene,
+  createLabelSettings,
   createRectangleShape2D,
+  Label,
   Node2D,
   StaticBody2D,
   Vector2,
@@ -21,9 +22,9 @@ function MainScene() {
         name="Camera"
       >
         <Player />
-        <Button
-          scale={Vector2(5, 5)}
-          position={Vector2(0, -200)}
+        <Label
+          position={Vector2(-18, -200)}
+          label_settings={createLabelSettings({ font_size: 64 })}
           name="Score"
           text="0"
         />

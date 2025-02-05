@@ -13,7 +13,7 @@ export default function Player() {
     <CharacterBody2D
       scale={Vector2(0.5, 0.5)}
       name="Player"
-      position={Vector2(-80, 0)}
+      position={Vector2(-70, 0)}
       script="./player.ts"
     >
       <AnimatedSprite2D

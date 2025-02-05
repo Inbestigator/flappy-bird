@@ -9,11 +9,10 @@ import {
   StaticBody2D,
   Vector2,
 } from "@inbestigator/godact";
-import "./pan.ts";
 
 function Pipe() {
   return (
-    <Node2D name="Pipe">
+    <Node2D script="./parallax.ts" name="Pipe">
       <StaticBody2D
         position={Vector2(0, -320)}
         name="TopPipe"
@@ -33,7 +32,7 @@ function Pipe() {
       <Area2D name="Area2D" script="./enteredPipe.ts">
         <CollisionShape2D
           name="CollisionShape2D"
-          shape={createRectangleShape2D(Vector2(75, 64))}
+          shape={createRectangleShape2D(Vector2(5, 64))}
         />
       </Area2D>
       <StaticBody2D

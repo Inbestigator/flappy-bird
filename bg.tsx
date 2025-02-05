@@ -9,7 +9,6 @@ export default function Background({ position }: { position?: Vector2Type }) {
   return (
     <Sprite2D
       position={position}
-      name="Background"
       texture={createTexture2D("res://sprites/bg-day.png")}
       z_index={-1}
     />

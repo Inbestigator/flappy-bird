@@ -4,5 +4,5 @@
 const Godot: any = null;
 
 export function _physics_process(_delta: number) {
-  Godot.position.x += 0.5;
+  Godot.position.x -= 0.5;
 }
