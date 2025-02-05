@@ -1,10 +1,10 @@
 {
   "tasks": {
-    "dev": "deno -A --watch main.tsx",
-    "build": "deno -A main.tsx"
+    "dev": "deno -A --watch builds.ts",
+    "build": "deno -A builds.ts"
   },
   "imports": {
-    "@inbestigator/godact": "jsr:@inbestigator/godact@^0.6.2",
+    "@inbestigator/godact": "jsr:@inbestigator/godact@^0.6.3",
     "@types/react": "npm:@types/react@^18.3.18",
     "react": "npm:react@^18.3.1"
   },

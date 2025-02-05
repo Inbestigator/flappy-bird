@@ -2,6 +2,6 @@
 *.import
 deno.lock
 .DS_STORE
-game/main.tscn
-game/moveBack.gd
-game/player.gd
+game/*.gd
+game/*.tscn
+
