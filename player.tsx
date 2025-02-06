@@ -6,7 +6,7 @@ import {
   createSpriteFrames,
   createTexture2D,
   Vector2,
-} from "@inbestigator/godact";
+} from "@gdx/godact";
 
 export default function Player() {
   return (

@@ -8,7 +8,7 @@ import {
   Node2D,
   StaticBody2D,
   Vector2,
-} from "@inbestigator/godact";
+} from "@gdx/godact";
 import Player from "./player.tsx";
 import Background from "./bg.tsx";
 

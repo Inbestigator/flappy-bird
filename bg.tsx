@@ -3,7 +3,7 @@ import {
   createTexture2D,
   Sprite2D,
   Vector2Type,
-} from "@inbestigator/godact";
+} from "@gdx/godact";
 
 export default function Background({ position }: { position?: Vector2Type }) {
   return (
