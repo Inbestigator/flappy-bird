@@ -9,10 +9,14 @@ import {
   StaticBody2D,
   Vector2,
 } from "@gdx/godact";
+import { GlobalMethods } from "@gdx/godact/methods";
 
 function Pipe() {
   return (
-    <Node2D script="./parallax.ts" name="Pipe">
+    <Node2D
+      onPhysicsProcess={() => GlobalMethods.position.x -= 0.5}
+      name="Pipe"
+    >
       <StaticBody2D
         position={Vector2(0, -320)}
         name="TopPipe"

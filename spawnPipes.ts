@@ -1,10 +1,9 @@
 "extends Node2D";
 
-// deno-lint-ignore no-explicit-any
-const Godot: any = null;
+import { GlobalMethods } from "@gdx/godact/methods";
 
-const pipeScene = Godot.preload("res://pipe.tscn");
-const bgScene = Godot.preload("res://bg.tscn");
+const pipeScene = GlobalMethods.preload("res://pipe.tscn");
+const bgScene = GlobalMethods.preload("res://bg.tscn");
 let timer = 0.5;
 let i = 0;
 
@@ -19,11 +18,14 @@ export function _physics_process(delta: number) {
 
 function spawnPipe() {
   const newPipe = pipeScene.instantiate();
-  newPipe.position = Godot.Vector2(228 * i, Godot.randf_range(128, 384));
-  Godot.add_child(newPipe);
+  newPipe.position = GlobalMethods.Vector2(
+    228 * i,
+    GlobalMethods.randf_range(128, 384),
+  );
+  GlobalMethods.add_child(newPipe);
   const newBg = bgScene.instantiate();
-  newBg.position = Godot.Vector2(getNthX(), 288);
-  Godot.add_child(newBg);
+  newBg.position = GlobalMethods.Vector2(getNthX(), 288);
+  GlobalMethods.add_child(newBg);
 }
 function getNthX() {
   const k = i - 1;

@@ -11,6 +11,7 @@ import {
 } from "@gdx/godact";
 import Player from "./player.tsx";
 import Background from "./bg.tsx";
+import { GlobalMethods } from "@gdx/godact/methods";
 
 function MainScene() {
   return (
@@ -18,8 +19,8 @@ function MainScene() {
       <Background position={Vector2(416, 288)} />
       <Camera2D
         position={Vector2(128, 288)}
-        script="./pan.ts"
         name="Camera"
+        onPhysicsProcess={() => GlobalMethods.position.x += 0.5}
       >
         <Player />
         <Label
