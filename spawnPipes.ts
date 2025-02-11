@@ -1,9 +1,9 @@
 "extends Node2D";
 
-import { GlobalMethods } from "@gdx/godact/methods";
+import { GDMethods } from "@gdx/godact/methods";
 
-const pipeScene = GlobalMethods.preload("res://pipe.tscn");
-const bgScene = GlobalMethods.preload("res://bg.tscn");
+const pipeScene = GDMethods.preload("res://pipe.tscn");
+const bgScene = GDMethods.preload("res://bg.tscn");
 let timer = 0.5;
 let i = 0;
 
@@ -18,14 +18,14 @@ export function _physics_process(delta: number) {
 
 function spawnPipe() {
   const newPipe = pipeScene.instantiate();
-  newPipe.position = GlobalMethods.Vector2(
+  newPipe.position = GDMethods.Vector2(
     228 * i,
-    GlobalMethods.randf_range(128, 384),
+    GDMethods.randf_range(128, 384),
   );
-  GlobalMethods.add_child(newPipe);
+  GDMethods.add_child(newPipe);
   const newBg = bgScene.instantiate();
-  newBg.position = GlobalMethods.Vector2(getNthX(), 288);
-  GlobalMethods.add_child(newBg);
+  newBg.position = GDMethods.Vector2(getNthX(), 288);
+  GDMethods.add_child(newBg);
 }
 function getNthX() {
   const k = i - 1;

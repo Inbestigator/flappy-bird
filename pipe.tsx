@@ -9,18 +9,12 @@ import {
   StaticBody2D,
   Vector2,
 } from "@gdx/godact";
-import { GlobalMethods } from "@gdx/godact/methods";
+import { GDMethods } from "@gdx/godact/methods";
 
 function Pipe() {
   return (
-    <Node2D
-      onPhysicsProcess={() => GlobalMethods.position.x -= 0.5}
-      name="Pipe"
-    >
-      <StaticBody2D
-        position={Vector2(0, -320)}
-        name="TopPipe"
-      >
+    <Node2D onPhysicsProcess={() => GDMethods.position.x -= 0.5} name="Pipe">
+      <StaticBody2D position={Vector2(0, -320)} name="TopPipe">
         <CollisionShape2D
           name="CollisionShape2D"
           shape={createRectangleShape2D(Vector2(75, 512))}
@@ -33,16 +27,27 @@ function Pipe() {
           flip_v
         />
       </StaticBody2D>
-      <Area2D name="Area2D" script="./enteredPipe.ts">
+      <Area2D
+        name="Area2D"
+        onBodyEntered={() => {
+          const scoreButton = GDMethods.get_node(
+            "../../Camera/Score",
+          ) as unknown as {
+            text: string;
+          };
+          if (scoreButton) {
+            scoreButton.text = GDMethods.str(
+              GDMethods.int(scoreButton.text) + 1,
+            );
+          }
+        }}
+      >
         <CollisionShape2D
           name="CollisionShape2D"
           shape={createRectangleShape2D(Vector2(5, 64))}
         />
       </Area2D>
-      <StaticBody2D
-        position={Vector2(0, 320)}
-        name="BottomPipe"
-      >
+      <StaticBody2D position={Vector2(0, 320)} name="BottomPipe">
         <CollisionShape2D
           name="CollisionShape2D"
           shape={createRectangleShape2D(Vector2(75, 512))}

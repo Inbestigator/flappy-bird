@@ -7,7 +7,7 @@ import {
   createTexture2D,
   Vector2,
 } from "@gdx/godact";
-import { GlobalMethods } from "@gdx/godact/methods";
+import { GDMethods } from "@gdx/godact/methods";
 
 export default function Player() {
   return (
@@ -18,21 +18,24 @@ export default function Player() {
       onPhysicsProcess={(delta) => {
         const JUMP_VELOCITY = -250;
 
-        GlobalMethods.velocity += GlobalMethods.get_gravity() * delta;
-        GlobalMethods.rotation = GlobalMethods.velocity.y * 0.001;
+        GDMethods.velocity = Vector2(
+          GDMethods.velocity.x + GDMethods.get_gravity().x * delta,
+          GDMethods.velocity.y + GDMethods.get_gravity().y * delta,
+        );
+        GDMethods.rotation = GDMethods.velocity.y * 0.001;
 
         if (
-          GlobalMethods.Input.is_action_just_pressed("ui_up") ||
-          GlobalMethods.Input.is_action_just_pressed("ui_accept")
+          GDMethods.Input.is_action_just_pressed("ui_up") ||
+          GDMethods.Input.is_action_just_pressed("ui_accept")
         ) {
-          GlobalMethods.velocity.y = JUMP_VELOCITY;
-          GlobalMethods.rotation = 0;
+          GDMethods.velocity.y = JUMP_VELOCITY;
+          GDMethods.rotation = 0;
         }
 
-        const collision = GlobalMethods.move_and_slide();
+        const collision = GDMethods.move_and_slide();
 
         if (collision) {
-          GlobalMethods.get_tree().reload_current_scene();
+          GDMethods.get_tree().reload_current_scene();
         }
       }}
     >
