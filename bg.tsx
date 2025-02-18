@@ -1,9 +1,4 @@
-import {
-  createGodactScene,
-  createTexture2D,
-  Sprite2D,
-  Vector2Type,
-} from "@gdx/godact";
+import { createTexture2D, Sprite2D, Vector2Type } from "@gdx/godact";
 
 export default function Background({ position }: { position?: Vector2Type }) {
   return (
@@ -14,5 +9,3 @@ export default function Background({ position }: { position?: Vector2Type }) {
     />
   );
 }
-
-createGodactScene(<Background />, "./game/bg.tscn");

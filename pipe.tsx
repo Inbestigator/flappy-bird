@@ -1,7 +1,6 @@
 import {
   Area2D,
   CollisionShape2D,
-  createGodactScene,
   createRectangleShape2D,
   createTexture2D,
   Node2D,
@@ -11,9 +10,9 @@ import {
 } from "@gdx/godact";
 import { GDMethods } from "@gdx/godact/methods";
 
-function Pipe() {
+export default function Pipe() {
   return (
-    <Node2D onPhysicsProcess={() => GDMethods.position.x -= 0.5} name="Pipe">
+    <Node2D onPhysicsProcess={() => (GDMethods.position.x -= 0.5)} name="Pipe">
       <StaticBody2D position={Vector2(0, -320)} name="TopPipe">
         <CollisionShape2D
           name="CollisionShape2D"
@@ -62,5 +61,3 @@ function Pipe() {
     </Node2D>
   );
 }
-
-createGodactScene(<Pipe />, "./game/pipe.tscn");

@@ -1,7 +1,6 @@
 import {
   Camera2D,
   CollisionShape2D,
-  createGodactScene,
   createLabelSettings,
   createRectangleShape2D,
   Label,
@@ -13,14 +12,14 @@ import Player from "./player.tsx";
 import Background from "./bg.tsx";
 import { GDMethods } from "@gdx/godact/methods";
 
-function MainScene() {
+export default function MainScene() {
   return (
     <Node2D name="Main" script="./spawnPipes.ts">
       <Background position={Vector2(416, 288)} />
       <Camera2D
         position={Vector2(128, 288)}
         name="Camera"
-        onPhysicsProcess={() => GDMethods.position.x += 0.5}
+        onPhysicsProcess={() => (GDMethods.position.x += 0.5)}
       >
         <Player />
         <Label
@@ -45,5 +44,3 @@ function MainScene() {
     </Node2D>
   );
 }
-
-createGodactScene(<MainScene />, "./game/main.tscn");
