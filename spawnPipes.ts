@@ -27,8 +27,8 @@ function spawnPipe() {
   newBg.position = GDMethods.Vector2(getNthX(), 288);
   GDMethods.add_child(newBg);
 }
+
 function getNthX() {
-  const k = i - 1;
-  const diff = 288 * k;
+  const diff = 288 * (i - 1);
   return 128 + diff;
 }
