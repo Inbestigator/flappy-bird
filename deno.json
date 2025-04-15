@@ -4,8 +4,8 @@
     "build": "deno -A builds.ts"
   },
   "imports": {
-    "@gdx/godact": "jsr:@gdx/godact@^0.7.2",
-    "@types/react": "npm:@types/react@^18.3.18",
+    "@gdx/godact": "jsr:@gdx/godact@^0.7.3",
+    "@types/react": "npm:@types/react@^18.3.20",
     "react": "npm:react@^18.3.1"
   },
   "compilerOptions": {
